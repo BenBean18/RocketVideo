@@ -2,12 +2,13 @@
 from picamera2 import Picamera2
 from picamera2.encoders import H264Encoder, MJPEGEncoder, Encoder
 from picamera2.outputs import FileOutput, FfmpegOutput
+from libcamera import controls
 import time
 picam2 = Picamera2()
 config = picam2.create_video_configuration(main={"size": (1600, 900)}, lores={"size": (480, 360)}, encode="main")
 picam2.configure(config)
 
-picam2.set_controls({"FrameRate": 20})
+picam2.set_controls({"FrameRate": 20, "AfMode": controls.AfModeEnum.Continuous})
 
 h264_encoder = H264Encoder()
 h264_output = "recording.h264"
