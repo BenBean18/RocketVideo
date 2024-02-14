@@ -1,0 +1,3 @@
+[submodule "rpidatv"]
+	path = rpidatv
+	url = https://github.com/BenBean18/rpidatv.git
